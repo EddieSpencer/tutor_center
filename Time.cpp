@@ -220,14 +220,14 @@ istream& operator>>(istream& in, Time& rhs)
     
     rhs.day = newDay;
     
-    cout << "Enter the hour: ";
+    cout << "Enter the hour (must be between 0 and 23): ";
     
     while(newHour < 0 || newHour > 23)
         getInt(in, newHour);
     
     rhs.hour = newHour;
     
-    cout << "Enter the minutes: ";
+    cout << "Enter the minutes(must be either 0 or 30): ";
     
     while(newMinute != 0 && newMinute != 30)
         getInt(in, newMinute);

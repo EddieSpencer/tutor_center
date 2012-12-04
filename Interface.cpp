@@ -157,7 +157,7 @@ void Interface::menu()
                             
                             if (availtutor[0].getName() == "no name")
                             {
-                                cout << "No tutors available at that time" << endl;
+                                cout << "No tutors available at that time" << endl << endl << endl;
                                 break;
                             }
                             
@@ -198,7 +198,7 @@ void Interface::menu()
                             meetlist.getElement(stud, t1).discontinueMeeting();
                             meet_array[meet_count] = meetlist.getElement(stud, t1);
                             meet_count++;
-                            cout << endl << endl << endl;
+                            cout << "Marked for discontinue" << endl << endl << endl;
                             break;
                         }
                         case 3:
@@ -266,7 +266,7 @@ void Interface::menu()
                     cout << "-------------------------------------------------------------" << endl;
                     cout << "Please choose an operation to perform: " << endl;
                     cout << "1 - New Progress Report" << endl;
-                    cout << "2 - View Progress Report" << endl;
+                    cout << "2 - View Progress Reports" << endl;
                     cout << "3 - Enter Hours" << endl;
                     cout << "4 - Enter Availability" << endl;
                     cout << "5 - Mark Absent" << endl;
@@ -287,18 +287,17 @@ void Interface::menu()
                         }
                         case 2:
                         {
-                            cout << "View Progress Report" << endl;
+                            cout << "View Progress Reports" << endl;
                             in_tutor.viewForms();
-                            cout << "All forms printed" << endl << endl << endl;
                             break;
                         }
                         case 3:
                         {
-                            cout << "Enter Hours" << endl;
+                            cout << "Enter Hours Worked" << endl;
                             int hr;
                             cin >> hr;
-                            if (hr > 20)
-                                cout << "Too many hours." << endl;
+                            if (hr > 20 || hr < 1)
+                                cout << "Hours must be between 1-20." << endl;
                             else
                             {
                                 in_tutor.enterHours(hr);
@@ -326,7 +325,7 @@ void Interface::menu()
                             Meeting meet;
                             
                             meetlist.getElement(stud, t1).logAbsence();
-                            cout << endl << endl << endl;
+                            cout << "Marked Absent" << endl << endl << endl;
                             break;
                         }
                         case 0:
@@ -433,7 +432,7 @@ void Interface::menu()
                             
                             if (availtutor[0].getName() == "no name")
                             {
-                                cout << "No tutors available at that time" << endl;
+                                cout << "No tutors available at that time" << endl << endl << endl;
                                 break;
                             }
                             
@@ -457,7 +456,6 @@ void Interface::menu()
                                 meetlist.addElement(meet);
                                 cout << "Signed up" << endl;
                             }
-                            
                             
                             break;
                         }

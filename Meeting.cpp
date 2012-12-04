@@ -130,6 +130,8 @@ void Meeting::output()
     cout << "Tutor: " << tutor.getName() << endl;
     cout << "Time: " << time.getDay() << " " << time.getHour() << ":" << time.getMinute() << endl;
     cout << "Subject: " << subject << endl;
+    cout << "Discontinue: " << discontinue << endl;
+    cout << "Times Absent: " << timesAbsent << endl;
     cout << "---------------------------------------------------------" << endl;
 }
 

@@ -105,7 +105,7 @@ void MeetingList::removeElement (ItemType item)
    }
 }
 
-ItemType MeetingList::getElement (string stud, Time t)
+ItemType& MeetingList::getElement (string stud, Time t)
 {
 
    nodePtr prevPtr = NULL;
@@ -192,7 +192,7 @@ ostream& operator << (ostream& outStr, MeetingList& rhs)
 	nodePtr tmpPtr = rhs.headPtr;
 	outStr << endl;
 	if (rhs.isEmpty())
-		outStr << "Sorry, the list is empty. Add some elements and then try again." << endl;
+		outStr << "Sorry, the list is empty. Add a meeting and try again." << endl;
 	else
 		while (tmpPtr != NULL)
 		{

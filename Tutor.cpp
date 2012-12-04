@@ -101,13 +101,13 @@ int Tutor::getHours()
 
 istream& Tutor::enterAvailability(istream &in)
 {
-    cout << "How many available times do you have: ";
+    cout << "How many available times do you have (greater than 0): ";
     
     numTimes = getValidInt(in);
     
-    while(numTimes < 0 || numTimes > 20)
+    while(numTimes <= 0 || numTimes > 20)
     {
-        cerr << "Enter a valid number of times (Between 0 and 20): ";
+        cerr << "Enter a valid number of times (between 0 and 20): ";
         
         numTimes = getValidInt(in);
     }
@@ -121,12 +121,12 @@ istream& Tutor::enterAvailability(istream &in)
         avail[i] = newAvailability;
     }
     
-    cout << "How many subjects do you tutor: ";
+    cout << "How many subjects do you tutor (between 0 and 5): ";
     numSubjects = getValidInt(in);
     
-    while(numSubjects < 0 || numSubjects > 5)
+    while(numSubjects <= 0 || numSubjects > 5)
     {
-        cerr << "Enter a valid number of subjects (Between 0 and 5): ";
+        cerr << "Enter a valid number of subjects (between 0 and 5): ";
         
         numSubjects = getValidInt(in);
     }

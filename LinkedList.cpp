@@ -240,7 +240,7 @@ ostream& operator <<(ostream& outStr, LinkedList<S>& rhs)
 	Node<S>* tmpPtr = rhs.headPtr;
 	outStr << endl;
 	if (rhs.isEmpty())
-		outStr << "Sorry, the list is empty. Add some elements and then try again." << endl;
+		outStr << "Sorry, the list is empty. Add some forms and try again." << endl;
 	else
 		while (tmpPtr != NULL)
 		{

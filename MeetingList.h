@@ -49,7 +49,7 @@ public:
 	void removeElement (ItemType);
 	bool isEmpty();
 	void clearList();
-	ItemType getElement (string, Time);
+	ItemType& getElement (string, Time);
 
 
     void writeToFile(string);
