@@ -9,6 +9,7 @@
 
 #include "Feedback.h"
 
+//constructor
 Feedback::Feedback()
 {
     tutor_name = "";
@@ -17,6 +18,7 @@ Feedback::Feedback()
     feedback = "";
 }
 
+//prompts user to input all form fields
 void Feedback::input()
 {
     bool tryAgain = true;
@@ -73,6 +75,7 @@ void Feedback::input()
     cout << "Feedback form complete." << endl << endl;
 }
 
+//outputs form data to terminal in readable format
 void Feedback::output()
 {
     cout << "---------------------------------------------------------" << endl;
@@ -84,6 +87,7 @@ void Feedback::output()
     cout << "---------------------------------------------------------" << endl;
 }
 
+//for sorting purposes in the linked list
 bool Feedback::operator>(Feedback& rep)
 {
     if (tutor_name > rep.tutor_name)
@@ -92,6 +96,7 @@ bool Feedback::operator>(Feedback& rep)
         return false;
 }
 
+//outputs the feedback form in input format
 ostream& operator<<(ostream& stream, Feedback& feed)
 {
     stream << feed.tutor_name << " " << feed.stud_name << " " << feed.rating << " " << feed.feedback << endl;
@@ -99,6 +104,7 @@ ostream& operator<<(ostream& stream, Feedback& feed)
     return stream;
 }
 
+//reads in feedback from a file
 istream& operator>>(istream& stream, Feedback& feed)
 {
     stream >> feed.tutor_name >> feed.stud_name >> feed.rating >> feed.feedback;
@@ -106,6 +112,7 @@ istream& operator>>(istream& stream, Feedback& feed)
     return stream;
 }
 
+//returns true or false to satisfy y/n
 bool getValidSelection()
 {
     bool tryAgain = true;
@@ -134,6 +141,7 @@ bool getValidSelection()
     return selection;
 }
 
+//returns valid number between 1-10 for rating
 int getValidRating()
 {
     bool tryAgain = true;

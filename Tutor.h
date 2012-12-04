@@ -25,6 +25,8 @@ const int MAXAVAIL = 20;
 class Tutor : public User
 {
 private:
+    //all instance variables for the Tutor
+    //holds hours, subjects, times, and progress reports
     int hoursWorked;
     Time avail[MAXAVAIL];
     int numTimes;
@@ -36,21 +38,25 @@ private:
     int numForms;
     
 public:
-    Tutor();
+    Tutor(); //constructor
+    //accessors for most instance data
     bool hasSubject(std::string);
     bool hasTime(Time);
-    bool signIn(std::string);
-    bool signOut();
     std::string getName();
     std::string getEmail();
     std::string getPasscode();
     long getCell();
     int getHours();
+    //sign in/out functions
+    bool signIn(std::string);
+    void signOut();
+    //functions to adjuct instance data
     void newForm(ProgressReport);
     void viewForms();
     int getValidInt(istream&);
     void enterHours(int);
     istream& enterAvailability(istream&);
+    //input/output functions for tutor
     ifstream& enterAvailability(ifstream&);
     friend ostream& operator<<(ostream &, Tutor &);
     friend istream& operator>>(istream &, Tutor &);

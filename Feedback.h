@@ -14,19 +14,22 @@
 #include <string>
 using namespace std;
 
-const int MAX_RATING = 10;
+const int MAX_RATING = 10; //sets max rating at ten
 
-bool getValidSelection();
-int getValidRating();
+bool getValidSelection(); //gets valid choice of y/n
+int getValidRating(); //gets valid number for rating, between 1-10
 
 class Feedback
 {
 private:
+    //instance data for feedback
+    //holds student and tutor names, a rating, and a comments section
     string tutor_name;
     string stud_name;
     int rating;
     string feedback;
 public:
+    //Functions for feedback, allows for input and output from console and file
     Feedback();
     void input();
     void output();

@@ -13,6 +13,7 @@
 
 using namespace std;
 
+//constructor
 User::User()
 {
     name = "no name";
@@ -21,28 +22,31 @@ User::User()
     ID = -1;
 }
 
-/*User::User(std::string n, std::string e, long c)
+//virtual function to return name
+std::string User::getName()
 {
-	name = n;
-	email = e;
-    ID = -1;
-	if (c >= 1000000000)
-		cell = c;
-	else
-		cell = 0;
+    ;
 }
- */
 
+//virtual function to sign out
+void User::signOut()
+{
+    ;
+}
+
+//sets user's name
 void User::setName(std::string n)
 {
 	name = n;
 }
 
+//sets user's email
 void User::setEmail(std::string e)
 {
 	email = e;
 }
 
+//sets user's cell
 void User::setCell(long c)
 {
 	if (c >= 1000000000)
@@ -51,13 +55,7 @@ void User::setCell(long c)
 		cell = 0;
 }
 
-void User::displayInfo()
-{
-	cout << "Name: " << name << endl;
-	cout << "Email: " << email << endl;
-	cout << "Cell: " << cell << endl;
-}
-
+//returns the ID, used to differentiate between tutors and admins
 int User::getID()
 {
     return ID;

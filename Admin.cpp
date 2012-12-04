@@ -13,12 +13,14 @@
 
 using namespace std;
 
+//constructor for user
 Admin::Admin():User()
 {
 	loggedIn = false;
 	ID = 1;
 }
 
+//checks that passcode matches what is on file
 bool Admin::signIn(std::string pass)
 {
     if(pass == passcode)
@@ -29,21 +31,25 @@ bool Admin::signIn(std::string pass)
     return loggedIn;
 }
 
+//signs out the admin
 void Admin::signOut()
 {
 	loggedIn = false;
 }
 
+//gets the passcode
 std::string Admin::getPasscode()
 {
     return passcode;
 }
 
+//returns the admin's name
 std::string Admin::getName()
 {
     return name;
 }
 
+//Outputs the admin object
 ostream& operator<<(ostream &out, Admin &adminObj)
 {
     if (adminObj.loggedIn)
@@ -53,6 +59,7 @@ ostream& operator<<(ostream &out, Admin &adminObj)
     return out;
 }
 
+//inputs the admin object from a file
 istream& operator>>(istream &in, Admin &adminObj)
 {
     std::string name1;
@@ -68,28 +75,4 @@ istream& operator>>(istream &in, Admin &adminObj)
     in >> adminObj.passcode;
     
     return in;   
-}
-
-Meeting createMeeting (Student stu, Tutor tut)
-{
-	Time t;
-	std::string subject;
-	int timesAbsent = 0;
-
-	cout << "What time is the meeting? ";
-	cin >> t;
-	cout << "What subject? ";
-	cin >> subject;
-	Meeting meeting = Meeting(stu, tut, t, subject, timesAbsent);
-	return meeting;
-}
-
-Meeting reschedule(Meeting& meeting)
-{
-	cout << meeting << endl;
-	cout << "Enter new time: ";
-    Time temp;
-	cin >> temp;
-    meeting.setTime(temp);
-	return meeting;
 }

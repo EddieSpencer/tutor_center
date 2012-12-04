@@ -7,10 +7,9 @@
 // Filename: MeetingList.cpp
 // Last modified on: 11/30/12
 
-
 #include "MeetingList.h"
 
-
+//constructor
 MeetingList::MeetingList()
 {
 	// ensure pointer is initialized to a valid value
@@ -18,11 +17,10 @@ MeetingList::MeetingList()
 	currentPos = headPtr;
 	length = 0;
 	lastPtr = NULL;
-
 }
 
 
-//sorted version
+//add meeting to meeting list
 void MeetingList::addElement (ItemType item)
 {
 
@@ -45,6 +43,8 @@ void MeetingList::addElement (ItemType item)
 
 	length++;
 }
+
+//desturctor for meeting list
 MeetingList::~MeetingList()
 {
     nodePtr tempPtr;
@@ -57,6 +57,7 @@ MeetingList::~MeetingList()
     }
 }
 
+//overloaded copy constructor for meeting list
 MeetingList::MeetingList(const MeetingList& list)
 {
     nodePtr fromPtr;
@@ -82,6 +83,7 @@ MeetingList::MeetingList(const MeetingList& list)
     lastPtr = toPtr;
 }
 
+//removes a meeting from the meeting list
 void MeetingList::removeElement (ItemType item)
 {
 
@@ -105,6 +107,7 @@ void MeetingList::removeElement (ItemType item)
    }
 }
 
+//finds an element in the meeting list
 ItemType& MeetingList::getElement (string stud, Time t)
 {
 
@@ -121,6 +124,7 @@ ItemType& MeetingList::getElement (string stud, Time t)
    }
 }
 
+//overloads assignment operator for meeting list
 MeetingList MeetingList::operator=(const MeetingList& list)
 {
     nodePtr fromPtr;
@@ -147,6 +151,7 @@ MeetingList MeetingList::operator=(const MeetingList& list)
     return *this;
 }
 
+//returns boolean if list is empty or not
 bool MeetingList::isEmpty()
 {
     if(headPtr==NULL)
@@ -155,6 +160,7 @@ bool MeetingList::isEmpty()
         return false;
 }
 
+//clears the meeting list
 void MeetingList::clearList()
 {
     nodePtr tempPtr;
@@ -167,6 +173,7 @@ void MeetingList::clearList()
     }
 }
 
+//merges two meeting lists
 MeetingList MeetingList::merge(const MeetingList& rhs)
 {
     MeetingList list1;
@@ -187,6 +194,7 @@ MeetingList MeetingList::merge(const MeetingList& rhs)
     return list1;
 }
 
+//overloads the output operator for outputting the meeting list to the terminal
 ostream& operator << (ostream& outStr, MeetingList& rhs)
 {
 	nodePtr tmpPtr = rhs.headPtr;
@@ -203,6 +211,7 @@ ostream& operator << (ostream& outStr, MeetingList& rhs)
 	return outStr;
 }
 
+//inputs the meeting list from a file
 bool MeetingList::inputFromFile(string inFileName, MeetingList &meet)
 {
     bool worked = true;
@@ -235,7 +244,7 @@ bool MeetingList::inputFromFile(string inFileName, MeetingList &meet)
     return worked;
 }
 
-
+//outputs the meeting list to a file
 void MeetingList::writeToFile(string outFileName)
 {
     nodePtr tempPtr = headPtr;

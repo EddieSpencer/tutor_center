@@ -11,6 +11,7 @@
 
 int main ()
 {
+    //runs interface menu
     Interface interface;
     interface.menu();
     

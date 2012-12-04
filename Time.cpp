@@ -8,7 +8,6 @@
 //  Last modified on: 11/30/12
 
 
-// include the header file with the class definition
 #include "Time.h"
 using namespace std;
 
@@ -60,21 +59,25 @@ void Time::getTime (std::string & d, int & hr, int & min) const
     min = minute;
 }
 
+//returns the day
 std::string Time::getDay()
 {
     return day;
 }
 
+//returns the hour
 int Time::getHour()
 {
     return hour;
 }
 
+//returns the minute
 int Time::getMinute()
 {
     return minute;
 }
 
+//prints the time
 void Time::printTime ()
 {
 	int hr = hour;
@@ -111,6 +114,7 @@ void Time::printTime ()
 
 }
 
+//overloaded equality operator for linked list
 bool Time::operator==(Time& otherTime)
 {
     if (day == otherTime.day && hour == otherTime.hour && minute == otherTime.minute)
@@ -119,6 +123,7 @@ bool Time::operator==(Time& otherTime)
         return false;
 }
 
+//overloaded inequality operator for linked list
 bool Time::operator!=(Time& otherTime)
 {
     if (day == otherTime.day && hour == otherTime.hour && minute == otherTime.minute)
@@ -127,6 +132,7 @@ bool Time::operator!=(Time& otherTime)
         return true;
 }
 
+//overloaded operator for linked list
 bool Time::operator>(Time& otherTime)
 {
     if (hour > otherTime.hour)
@@ -142,6 +148,7 @@ bool Time::operator>(Time& otherTime)
         return false;
 }
 
+//overloaded operator for linked list
 bool Time::operator<(Time& otherTime)
 {
     if (hour < otherTime.hour)
@@ -157,6 +164,7 @@ bool Time::operator<(Time& otherTime)
         return false;
 }
 
+//gets valid int for the time
 istream& getInt (istream& in, int & value)
 {
     bool try_again = true;
@@ -176,6 +184,7 @@ istream& getInt (istream& in, int & value)
     return in;
 }
 
+//gets valid day for the time
 istream& getDay (istream& in, std::string & day)
 {
     bool try_again = true;
@@ -197,12 +206,14 @@ istream& getDay (istream& in, std::string & day)
     return in;
 }
 
+//outputs the time in input format
 ostream& operator<<(ostream& out, Time& rhs)
 {
     out << rhs.day << " " << rhs.hour << rhs.minute;
     return out;
 }
 
+//inputs the time from the terminal
 istream& operator>>(istream& in, Time& rhs)
 {
     std::string newDay;
@@ -237,6 +248,7 @@ istream& operator>>(istream& in, Time& rhs)
     return in;
 }
 
+//inputs the time from a file
 ifstream& operator>>(ifstream& in, Time& rhs)
 {
     std::string newDay;

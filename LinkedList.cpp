@@ -10,6 +10,7 @@
 #include "LinkedList.h"
 using namespace std;
 
+//constructor for the linked list
 template <class T>
 LinkedList<T>::LinkedList()
 {
@@ -22,6 +23,7 @@ LinkedList<T>::LinkedList()
 }
 
 //sorted version
+//adds an element to the linked list
 template <class T>
 void LinkedList<T>::addElement(T item)
 {
@@ -47,6 +49,7 @@ void LinkedList<T>::addElement(T item)
 	length++;
 }
 
+//destructor for the LinkedList
 template <class T>
 LinkedList<T>::~LinkedList()
 {
@@ -60,6 +63,7 @@ LinkedList<T>::~LinkedList()
     }
 }
 
+//overwrites the copy instructor
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& list)
 {
@@ -86,6 +90,7 @@ LinkedList<T>::LinkedList(const LinkedList<T>& list)
     lastPtr = toPtr;
 }
 
+//removes an element from the linked list
 template <class T>
 void LinkedList<T>::removeElement(T item)
 {
@@ -110,6 +115,7 @@ void LinkedList<T>::removeElement(T item)
    }
 }
 
+//returns boolean true if list is empty
 template <class T>
 bool LinkedList<T>::isEmpty()
 {
@@ -119,6 +125,7 @@ bool LinkedList<T>::isEmpty()
         return false;
 }
 
+//deletes each member of the list
 template <class T>
 void LinkedList<T>::clearList()
 {
@@ -132,6 +139,7 @@ void LinkedList<T>::clearList()
     }
 }
 
+//merges two linked lists
 template <class T>
 LinkedList<T> LinkedList<T>::merge(const LinkedList<T> &rhs)
 {
@@ -155,6 +163,7 @@ LinkedList<T> LinkedList<T>::merge(const LinkedList<T> &rhs)
     return list;
 }
 
+//overwrites the assignment operator for the linked list
 template <class T>
 LinkedList<T> LinkedList<T>::operator=(const LinkedList<T>& list)
 {
@@ -184,6 +193,7 @@ LinkedList<T> LinkedList<T>::operator=(const LinkedList<T>& list)
     return *this;
 }
 
+//inputs the linked list from a file
 template <class T>
 bool LinkedList<T>::inputFromFile (string inFileName)
 {
@@ -217,6 +227,7 @@ bool LinkedList<T>::inputFromFile (string inFileName)
 	return worked;
 }
 
+//outputs all the items in the linked list to a file
 template <class T>
 void LinkedList<T>::writeToFile(string outFileName)
 {
@@ -234,6 +245,7 @@ void LinkedList<T>::writeToFile(string outFileName)
     out.close();
 }
 
+//outputs the linked list to the terminal
 template <class S>
 ostream& operator <<(ostream& outStr, LinkedList<S>& rhs)
 {

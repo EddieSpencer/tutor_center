@@ -18,7 +18,7 @@
 using namespace std;
 
 
-
+//creates Node for the meeting list
 typedef Meeting ItemType;
 struct MeetingNode
 {
@@ -32,26 +32,27 @@ class MeetingList
 {
 
 private:
-
+    //instance data for meeting list
 	nodePtr headPtr;
 	nodePtr currentPos;
 	nodePtr lastPtr;
     int length;
 
 public:
-
+    //constructors, destructors, and rest of big 3
     MeetingList();
 	~MeetingList();
 	MeetingList(const MeetingList&);
     MeetingList merge(const MeetingList&);
-
+    
+    //functions to manipulate the meeting list
     void addElement(ItemType);
 	void removeElement (ItemType);
 	bool isEmpty();
 	void clearList();
 	ItemType& getElement (string, Time);
 
-
+    //functions for input/output of meeting list
     void writeToFile(string);
     bool inputFromFile(string, MeetingList&);
 

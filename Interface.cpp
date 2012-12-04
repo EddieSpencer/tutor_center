@@ -12,6 +12,8 @@
 //text-based interface for tutoring center
 void Interface::menu()
 {
+    //loads the interface with values needed to navigate
+    //also preloads several tutors, admins, and 1 meeting
     int user = 0, student_choice = 0, tutor_choice = 0, admin_choice = 0;
     bool anotherOp = true, main_screen = true;
     string passcode = "";
@@ -82,7 +84,6 @@ void Interface::menu()
     
     adminStream.close();
     
-    //MEETING
     ifstream meetingStream;
     meetingStream.open("Meeting.txt");
     
@@ -90,8 +91,8 @@ void Interface::menu()
     meetlist.addElement(inputMeeting);
     
     meetingStream.close();
-    //END MEETING
-            
+    
+    //begins the interface
     while (main_screen)
     {
         cout << "-------------------------------------------------------------" << endl;
@@ -125,7 +126,7 @@ void Interface::menu()
                     
                     switch (student_choice)
                     {
-                        case 1:
+                        case 1: //helps the student find a tutor
                         {
                             cout << "Find Tutor" << endl << endl << endl;
                             
@@ -184,7 +185,7 @@ void Interface::menu()
                                                         
                             break;
                         }
-                        case 2:
+                        case 2: //helps the student discontinue a meeting
                         {
                             cout << "Enter your name" <<endl;
                             string stud, stud1, stud2;
@@ -201,7 +202,7 @@ void Interface::menu()
                             cout << "Marked for discontinue" << endl << endl << endl;
                             break;
                         }
-                        case 3:
+                        case 3: //allows the student to enter a feedback form
                         {
                             Feedback f;
                             f.input();
@@ -209,7 +210,7 @@ void Interface::menu()
                             feedlist.addElement(f);
                             break;
                         }
-                        case 0:
+                        case 0: //returns to the main screen
                         {
                             cout << "Returning to Main Screen" << endl << endl << endl;
                             anotherOp = false;
@@ -260,7 +261,7 @@ void Interface::menu()
                 }
                 echo(true);
                 
-                                
+                //begins loop if tutor login successful                
                 while (anotherOp)
                 {
                     cout << "-------------------------------------------------------------" << endl;
@@ -277,7 +278,7 @@ void Interface::menu()
 
                     switch (tutor_choice)
                     {
-                        case 1:
+                        case 1: //tutor enters new progress report
                         {
                             ProgressReport p;
                             p.input();
@@ -285,13 +286,13 @@ void Interface::menu()
                             cout << "Progress Report stored" << endl << endl << endl;
                             break;
                         }
-                        case 2:
+                        case 2: //tutor views all current progress reports
                         {
                             cout << "View Progress Reports" << endl;
                             in_tutor.viewForms();
                             break;
                         }
-                        case 3:
+                        case 3: //tutor enters hours worked
                         {
                             cout << "Enter Hours Worked" << endl;
                             int hr;
@@ -306,14 +307,14 @@ void Interface::menu()
                             cout << endl << endl << endl;
                             break;
                         }
-                        case 4:
+                        case 4: //tutor enters availability
                         {
                             cout << "Enter Availability" << endl;
                             in_tutor.enterAvailability(cin);
                             cout << "Availability succeeded" << endl << endl << endl;
                             break;
                         }
-                        case 5:
+                        case 5: //tutor marks a student absent
                         {
                             cout << "Enter a student name" <<endl;
                             string stud, stud1, stud2;
@@ -328,7 +329,7 @@ void Interface::menu()
                             cout << "Marked Absent" << endl << endl << endl;
                             break;
                         }
-                        case 0:
+                        case 0: //tutor signs out
                         {
                             in_tutor.signOut();
                             cout << "Signed-Out" << endl;
@@ -383,7 +384,7 @@ void Interface::menu()
                 echo(true);
                 
 
-                            
+                //begins loop if admin log in successful            
                 while (anotherOp)
                 {
                     cout << "-------------------------------------------------------------" << endl;
@@ -399,7 +400,7 @@ void Interface::menu()
                     
                     switch (admin_choice)
                     {
-                        case 1:
+                        case 1: //admin schedules student
                         {
                             cout << "Schedule Student" << endl;
                             cout << "Find Tutor" << endl << endl << endl;
@@ -459,7 +460,7 @@ void Interface::menu()
                             
                             break;
                         }
-                        case 2:
+                        case 2: //admin views all meetings
                         {
                             cout << "View Meeting List" << endl;
                             cout << meetlist << endl;
@@ -467,7 +468,7 @@ void Interface::menu()
                             
                             break;
                         }
-                        case 3:
+                        case 3: //admin discontinues all meetings marked for discontinue
                         {
                             cout << "Discontinue Meeting" << endl;
                             for (int i = 0; i < meet_count; i++)
@@ -478,13 +479,13 @@ void Interface::menu()
                             cout << "Removal completed" << endl << endl << endl;
                             break;
                         }
-                        case 4:
+                        case 4: //admin views all feedback forms submitted
                         {
                             cout << "View Feedback" << endl;
                             cout << feedlist << endl << endl << endl;
                             break;
                         }
-                        case 0:
+                        case 0: //admin signs out
                         {
                             in_admin.signOut();
                             cout << "Signed-Out" << endl;
@@ -501,12 +502,12 @@ void Interface::menu()
             case 0:
             {
                 cout << "Enter passcode to end program: " << endl;
-                //DO: Disable echo on screen or show as *'s
                 
                 echo(false);
                 cin >> passcode;
                 echo(true);
                 
+                //exits if correct passcode, returns to main screen if incorrect
                 if (passcode == "TCNJ")
                 {
                     main_screen = false;
@@ -524,6 +525,7 @@ void Interface::menu()
     return;
 }
 
+//gets valid choice to navigate interface menu
 int getValidChoice(int max)
 {
     bool tryAgain = true;
@@ -549,6 +551,7 @@ int getValidChoice(int max)
     return x;
 }
 
+//gets valid day for the find tutor functions
 istream& getValidDay (istream& in, std::string & day)
 {
     bool try_again = true;
@@ -583,6 +586,7 @@ void echo (bool on = true)
     return;
 }
 
+//gets valid y/n decision
 bool getValidDecision()
 {
     bool tryAgain = true;

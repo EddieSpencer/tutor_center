@@ -23,7 +23,8 @@ class Meeting
 {
     
 private:
-    
+    //instance data for meeting object
+    //holds tutor, student, time, subject, and several flags
     Time time;
     std::string subject;
     Tutor tutor;
@@ -32,10 +33,12 @@ private:
     int timesAbsent;
     
 public:
-    
+    //constructors
     Meeting(Student, Tutor, Time, std::string, int);
     Meeting();
     
+    //functions to access instance data, compare instance data, and
+    //input/output instance data
     void logAbsence();
     
     Student getStudent();

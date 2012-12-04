@@ -23,14 +23,16 @@ istream& getLong (istream&, long&);
 class Student : public User
 {
     private:
-
+        //all instance data inherited
 
     public:
-            Student();
-            //Student(std::string, std::string, long);
-            std::string getName();
-            //Meeting signUp(Tutor, std::string,int, std::string);
+            Student(); //constructor
             
+            //additional functions define virtual
+            std::string getName();
+            void signOut();
+            
+            //input/output for student
             friend ostream& operator<<(ostream&, Student&);
             friend istream& operator>>(istream&, Student&);
 };

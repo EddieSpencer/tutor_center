@@ -10,21 +10,32 @@
 #include <iostream>
 #include "student.h"
 
+//constructor
 Student::Student():User()
 {
 }
 
+//accessor for student name
 std::string Student::getName()
 {
     return name;
 }
 
+//sign out function for student
+void Student::signOut()
+{
+    cout << "Student signed out" << endl;
+    return;
+}
+
+//output for student object
 ostream& operator<<(ostream &out, Student &studObj)
 {
     out << studObj.name << " " << studObj.email << " " << studObj.cell << endl;
     return out;
 }
 
+//input for student object
 istream& operator>>(istream &in, Student &studObj)
 {
     std::string name1;
@@ -42,6 +53,7 @@ istream& operator>>(istream &in, Student &studObj)
     return in;
 }
 
+//getLong function for cell number input
 istream& getLong (istream& in, long & value)
 {
     bool try_again = true;

@@ -9,6 +9,7 @@
 
 #include "Tutor.h"
 
+//constructor
 Tutor::Tutor():User()
 {
     name = "no name";
@@ -22,6 +23,7 @@ Tutor::Tutor():User()
     progReports;
 }
 
+//checks that tutor has subject
 bool Tutor::hasSubject(std::string subject)
 {
     bool result = false;
@@ -33,6 +35,7 @@ bool Tutor::hasSubject(std::string subject)
     return result;
 }
 
+//checks that tutor has time
 bool Tutor::hasTime(Time t)
 {
     bool result = false;
@@ -45,6 +48,7 @@ bool Tutor::hasTime(Time t)
     return result;
 }
 
+//signs the tutor in if passcode is correct
 bool Tutor::signIn(std::string pass)
 {
     if(pass == passcode)
@@ -56,49 +60,57 @@ bool Tutor::signIn(std::string pass)
     
 }
 
-bool Tutor::signOut()
+//signs the tutor out
+void Tutor::signOut()
 {
     loggedIn = false;
 }
 
-
+//adds new progress report to the linked list
 void Tutor::newForm(ProgressReport rep)
 {
     numForms++;
     progReports.addElement(rep);
 }
 
+//views all progress reports in linked list
 void Tutor::viewForms()
 {
     cout << progReports;
 }
 
+//inputs the number of hours worked
 void Tutor::enterHours(int hours)
 {
     if (hours > 0)
         hoursWorked = hours;
 }
 
+//returns tutor name
 std::string Tutor::getName()
 {
     return name;
 }
 
+//returns tutor email
 std::string Tutor::getEmail()
 {
     return email;
 }
 
+//returns tutor cell
 long Tutor::getCell()
 {
     return cell;
 }
 
+//returns tutor's hours worked
 int Tutor::getHours()
 {
     return hoursWorked;
 }
 
+//allows tutor to enter additional availability from the terminal
 istream& Tutor::enterAvailability(istream &in)
 {
     cout << "How many available times do you have (greater than 0): ";
@@ -143,6 +155,7 @@ istream& Tutor::enterAvailability(istream &in)
     return in;
 }
 
+//inputs availability from a file
 ifstream& Tutor::enterAvailability(ifstream &in)
 {
     
@@ -180,7 +193,7 @@ ifstream& Tutor::enterAvailability(ifstream &in)
     return in;
 }
 
-
+//outputs the tutor object in input format
 ostream& operator<<(ostream& out, Tutor& tutorObj)
 {
     out << tutorObj.getName() << " " << tutorObj.getEmail() << " " << tutorObj.getCell() << " " << tutorObj.getHours()<< " ";
@@ -198,6 +211,7 @@ ostream& operator<<(ostream& out, Tutor& tutorObj)
     return out;
 }
 
+//inputs tutor object from terminal
 istream& operator>>(istream &in, Tutor &current)
 {
     std::string name1;
@@ -224,6 +238,7 @@ istream& operator>>(istream &in, Tutor &current)
     return in;
 }
 
+//inputs tutor object from a file
 ifstream& operator>>(ifstream& in, Tutor &current)
 {
     std::string name1;
@@ -254,11 +269,13 @@ ifstream& operator>>(ifstream& in, Tutor &current)
     return in;
 }
 
+//returns tutor passcode
 std::string Tutor::getPasscode()
 {
     return passcode;
 }
 
+//gets valid int for entry
 int Tutor::getValidInt (istream& in)
 {
     bool tryAgain = true;

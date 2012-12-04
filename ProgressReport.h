@@ -19,12 +19,14 @@ bool getValidChoice();
 class ProgressReport
 {
 private:
+    //instance data for the various sections of the progress report
     string stud_name;
     string date;
     string attitude;
     string action;
     string next;
 public:
+    //functions to input and output the report to the terminal or a file
     ProgressReport();
     void input();
     void output();

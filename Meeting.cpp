@@ -9,7 +9,7 @@
 
 #include "Meeting.h"
 
-
+//constructor for Meeting
 Meeting::Meeting(Student newStudent, Tutor newTutor, Time newTime, std::string newSubject, int newAbsence)
 {
     student = newStudent;
@@ -20,6 +20,7 @@ Meeting::Meeting(Student newStudent, Tutor newTutor, Time newTime, std::string n
     discontinue = false;
 }
 
+//additional constructor
 Meeting::Meeting()
 {
     subject = "";
@@ -27,6 +28,7 @@ Meeting::Meeting()
     discontinue = false;
 }
 
+//sets a meeting with parameterized data
 void Meeting::setMeeting(Student newStudent, Tutor newTutor, Time newTime, std::string newSubject)
 {
     student = newStudent;
@@ -36,32 +38,37 @@ void Meeting::setMeeting(Student newStudent, Tutor newTutor, Time newTime, std::
     discontinue = false;
 }
 
+//changes the meeting time
 void Meeting::changeMeeting(Time newTime)
 {
     time = newTime;
 }
 
+//returns the meeting time
 Time Meeting::getTime()
 {
     return time;
 }
 
+//sets the meeting time
 void Meeting::setTime(Time newTime)
 {
     time = newTime;
 }
 
+//returns the student object
 Student Meeting::getStudent()
 {
     return student;
 }
 
-
+//returns the tutor object
 Tutor Meeting::getTutor()
 {
     return tutor;
 }
 
+//increments the number of absences by 1
 void Meeting::logAbsence()
 {
     timesAbsent++;
@@ -71,11 +78,13 @@ void Meeting::logAbsence()
     }
 }
 
+//sets discontinue flag to true
 void Meeting::discontinueMeeting()
 {
     discontinue = true;
 }
 
+//overloaded operator for linked list
 bool Meeting::operator>(Meeting& meet)
 {
     if (tutor.getName() > meet.tutor.getName())
@@ -91,6 +100,7 @@ bool Meeting::operator>(Meeting& meet)
         return false;
 }
 
+//overloaded operator for linked list
 bool Meeting::operator<(Meeting& meet)
 {
     if (tutor.getName() < meet.tutor.getName())
@@ -106,6 +116,7 @@ bool Meeting::operator<(Meeting& meet)
         return false;
 }
 
+//equality operator overload for linked list
 bool Meeting::operator==(Meeting& meet)
 {
     if (tutor.getName() == meet.tutor.getName() && time == meet.time)
@@ -114,6 +125,7 @@ bool Meeting::operator==(Meeting& meet)
         return false;
 }
 
+//inequality operator overload for linked list
 bool Meeting::operator!=(Meeting& meet)
 {
     if (tutor.getName() == meet.tutor.getName() && time == meet.time)
@@ -122,6 +134,7 @@ bool Meeting::operator!=(Meeting& meet)
         return true;
 }
 
+//output function to output meeting data to terminal
 void Meeting::output()
 {
     cout << "---------------------------------------------------------" << endl;
@@ -135,6 +148,7 @@ void Meeting::output()
     cout << "---------------------------------------------------------" << endl;
 }
 
+//output function to output meeting data to file
 ostream& operator<<(ostream &out, Meeting &current)
 {
     out << current.student << " " << current.tutor << " " << current.time << " " << current.subject << " " << current.timesAbsent << endl;
@@ -142,6 +156,7 @@ ostream& operator<<(ostream &out, Meeting &current)
     return out;
 }
 
+//inputs meeting data from terminal
 istream& operator>>(istream& in, Meeting &current)
 {
     Student newStudent;
@@ -159,6 +174,7 @@ istream& operator>>(istream& in, Meeting &current)
     return in;
 }
 
+//inputs meeting data from a file
 ifstream& operator>>(ifstream& in, Meeting &current)
 {
     Student newStudent;

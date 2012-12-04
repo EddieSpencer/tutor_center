@@ -23,19 +23,19 @@ using namespace std;
 class Admin : public User
 {
 	private:
+        //instance data for an admin object
 		bool loggedIn;
         std::string passcode;
 	public:
+        //functions for admin that allow for signing in and out,
+        //accessors, and input/output
 		Admin();
-		//Admin(std::string, std::string, long, bool);
         bool signIn(std::string);
 		void signOut();
         std::string getPasscode();
         std::string getName();
 		friend ostream& operator<<(ostream &out, Admin &adminObj);
 		friend istream& operator>>(istream &in, Admin &adminObj);
-		Meeting createMeeting(Student,Tutor);
-		Meeting reschedule(Meeting&);
 };
 
 #endif

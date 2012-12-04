@@ -9,6 +9,7 @@
 
 #include "ProgressReport.h"
 
+//constructor
 ProgressReport::ProgressReport()
 {
     stud_name = "";
@@ -18,6 +19,7 @@ ProgressReport::ProgressReport()
     next = "";
 }
 
+//function for inputting a progress report
 void ProgressReport::input()
 {
     bool tryAgain = true;
@@ -86,6 +88,7 @@ void ProgressReport::input()
     cout << "Progress report complete." << endl << endl;
 }
 
+//function for outputting the progress report to the terminal
 void ProgressReport::output()
 {
     cout << "---------------------------------------------------------" << endl;
@@ -98,6 +101,7 @@ void ProgressReport::output()
     cout << "---------------------------------------------------------" << endl;
 }
 
+//overloaded operator for the linked list
 bool ProgressReport::operator>(ProgressReport& rep)
 {
     if (stud_name > rep.stud_name)
@@ -106,6 +110,7 @@ bool ProgressReport::operator>(ProgressReport& rep)
         return false;
 }
 
+//outputs report in format to read from file
 ostream& operator<<(ostream& stream, ProgressReport& report)
 {
     stream << report.stud_name << " " << report.date << " " << report.attitude << " " << report.action  << " " << report.next << endl;
@@ -113,6 +118,7 @@ ostream& operator<<(ostream& stream, ProgressReport& report)
     return stream;
 }
 
+//inputs report from file
 istream& operator>>(istream& stream, ProgressReport& report)
 {
     stream >> report.stud_name >> report.date >> report.attitude >> report.action >> report.next;
@@ -120,6 +126,7 @@ istream& operator>>(istream& stream, ProgressReport& report)
     return stream;
 }
 
+//gets valid choice for the data input
 bool getValidChoice()
 {
     bool tryAgain = true;

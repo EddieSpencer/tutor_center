@@ -9,7 +9,7 @@
 
 #include "PointerLinkedList.h"
 
-
+//constructor
 PointerLinkedList::PointerLinkedList()
 {
 	// ensure pointer is initialized to a valid value
@@ -20,13 +20,14 @@ PointerLinkedList::PointerLinkedList()
     
 }
 
+//returns length of data structure
 int PointerLinkedList::getLength()
 {
     return length;
 }
 
 
-//sorted version
+//adds an element to the linked list
 void PointerLinkedList::addElement (User* item)
 {
     
@@ -49,6 +50,8 @@ void PointerLinkedList::addElement (User* item)
     
 	length++;
 }
+
+//destructor for the linked list
 PointerLinkedList::~PointerLinkedList()
 {
     userNodePtr tempPtr;
@@ -61,6 +64,7 @@ PointerLinkedList::~PointerLinkedList()
     }
 }
 
+//overloaded copy constructor for the linked list
 PointerLinkedList::PointerLinkedList(const PointerLinkedList& list)
 {
     userNodePtr fromPtr;
@@ -86,6 +90,7 @@ PointerLinkedList::PointerLinkedList(const PointerLinkedList& list)
     lastPtr = toPtr;
 }
 
+//removes an element from the linked list
 void PointerLinkedList::removeElement (User* item)
 {
     
@@ -109,6 +114,7 @@ void PointerLinkedList::removeElement (User* item)
     }
 }
 
+//finds an element in the linked list
 void PointerLinkedList::getElement (string subject, Time t, User useravail[])
 {
     int i = 0;
@@ -132,6 +138,7 @@ void PointerLinkedList::getElement (string subject, Time t, User useravail[])
     return;
 }
 
+//overloaded assignment operator for the linked list
 PointerLinkedList PointerLinkedList::operator=(const PointerLinkedList& list)
 {
     userNodePtr fromPtr;
@@ -158,6 +165,7 @@ PointerLinkedList PointerLinkedList::operator=(const PointerLinkedList& list)
     return *this;
 }
 
+//returns boolean if linked list is empty or not
 bool PointerLinkedList::isEmpty()
 {
     if(headPtr==NULL)
@@ -166,6 +174,7 @@ bool PointerLinkedList::isEmpty()
         return false;
 }
 
+//clears the linked list of all nodes
 void PointerLinkedList::clearList()
 {
     userNodePtr tempPtr;
@@ -178,6 +187,7 @@ void PointerLinkedList::clearList()
     }
 }
 
+//merges two linked lists
 PointerLinkedList PointerLinkedList::merge(const PointerLinkedList& rhs)
 {
     PointerLinkedList list1;
@@ -198,6 +208,7 @@ PointerLinkedList PointerLinkedList::merge(const PointerLinkedList& rhs)
     return list1;
 }
 
+//outputs the linked list to a file stream
 ostream& operator << (ostream& outStr, PointerLinkedList& rhs)
 {
 	userNodePtr tmpPtr = rhs.headPtr;

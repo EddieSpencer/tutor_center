@@ -18,18 +18,21 @@ using namespace std;
 class User
 {
 	protected:
+        //instance data for a user
         std::string name;
 		std::string email;
 		long cell;
         int ID;
 	public:
-		User();
-		//User(std::string, std::string, long);
+		User(); //constructor
+        //accessors and mutators
 		void setName(std::string);
 		void setEmail(std::string);
 		void setCell(long);
-		void displayInfo();
         int getID();
+        virtual std::string getName();
+        //function to sign user out
+        virtual void signOut();
 };
 
 #endif
